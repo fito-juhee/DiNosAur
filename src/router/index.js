@@ -7,6 +7,7 @@ import FlexBox from "../views/layout/FlexBox.vue";
 
 import Cards from "../views/components/Cards.vue";
 import Progress from "../views/components/Progress.vue";
+import NotFound from "../views/NotFound.vue";
 
 Vue.use(VueRouter);
 
@@ -34,7 +35,7 @@ const routes = [
   {
     path: "*",
     name: "notFound",
-    redirect: { name: "home" }
+    component: NotFound
   }
 ];
 
