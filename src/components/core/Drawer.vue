@@ -1,22 +1,22 @@
 <template>
   <nav
-    class="loo-navigation-drawer loo-navigation-drawer__continer"
+    class="d-navigation-drawer d-navigation-drawer__continer"
     :class="{ toggle: isDrawer }"
   >
-    <div class="loo-navigation-drawer__content">
-      <div class="loo-list-item">
-        <div class="loo-list-item__content">
-          <div class="loo-list-item__title title">
+    <div class="d-navigation-drawer__content">
+      <div class="d-list-item">
+        <div class="d-list-item__content">
+          <div class="d-list-item__title title">
             No Vuetify
           </div>
         </div>
       </div>
-      <hr class="loo-divider" />
-      <div class="loo-list">
-        <div class="loo-list-item" v-for="item in listItems" :key="item.title">
+      <hr class="d-divider" />
+      <div class="d-list">
+        <div class="d-list-item" v-for="item in listItems" :key="item.title">
           <router-link :to="item.to">
-            <div class="loo-list-item__content">
-              <div class="loo-list-item__title">
+            <div class="d-list-item__content">
+              <div class="d-list-item__title">
                 {{ item.title }}
               </div>
             </div>

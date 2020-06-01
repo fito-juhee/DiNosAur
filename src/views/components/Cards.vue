@@ -4,7 +4,7 @@
     <h1 class="text__subtitle">
       Cards contain content and actions about a single subject.
     </h1>
-    <j-card>dddddd</j-card>
+    <d-card>dddddd</d-card>
   </div>
 </template>
 

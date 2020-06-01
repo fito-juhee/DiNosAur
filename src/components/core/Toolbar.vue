@@ -1,30 +1,30 @@
 <template>
-  <header class="loo-toolbar loo__toolbar__fixed loo-toolbar__container">
-    <div class="loo-toolbar__content">
-      <div class="loo-toolbar__navIcon">
+  <header class="d-toolbar d-toolbar__fixed d-toolbar__container">
+    <div class="d-toolbar__content">
+      <div class="d-toolbar__navIcon">
         <button
-          class="loo-btn loo-btn--flat loo-btn--icon loo-btn--round"
+          class="d-btn d-btn--flat d-btn--icon d-btn--round"
           @click="clickEvent"
         >
           <i class="fas fa-hamburger fa-2x"></i>
         </button>
       </div>
-      <div class="loo-toolbar__title">
-        <a href="/home">
+      <div class="d-toolbar__title">
+        <a href="/">
           <h5>PAGE TITLE</h5>
         </a>
       </div>
-      <ul class="loo-toolbar__actions">
+      <ul class="d-toolbar__actions">
         <a href="#">
-          <li class="loo-toolbar__list">
-            <button class="loo-btn loo-btn--flat loo-btn--icon loo-btn--round">
+          <li class="d-toolbar__list">
+            <button class="d-btn d-btn--flat d-btn--icon d-btn--round">
               <i class="fas fa-bell fa-2x"></i>
             </button>
           </li>
         </a>
         <a href="#">
-          <li class="loo-toolbar__list">
-            <button class="loo-btn loo-btn--flat loo-btn--icon loo-btn--round">
+          <li class="d-toolbar__list">
+            <button class="d-btn d-btn--flat d-btn--icon d-btn--round">
               <i class="fas fa-cog fa-2x"></i>
             </button>
           </li>

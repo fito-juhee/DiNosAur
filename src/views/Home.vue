@@ -1,6 +1,6 @@
 <template>
   <div>
-    <img alt="Vue logo" src="@/assets/logo.png" />
+    <img class="home__logo" alt="Vue logo" src="@/assets/dna.png" />
     <h4>Home Hello! :)</h4>
   </div>
 </template>
@@ -9,4 +9,9 @@
 export default {};
 </script>
 
-<style></style>
+<style>
+.home__logo {
+  width: 256px;
+  height: 256px;
+}
+</style>
