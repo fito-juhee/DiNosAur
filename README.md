@@ -1,4 +1,4 @@
-# vuehee
+# dinosaur
 
 ## Project setup
 ```
