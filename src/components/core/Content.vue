@@ -1,5 +1,5 @@
 <template>
-  <main class="loo-content">
+  <main class="d-content">
     <div class="main__container" :class="{ toggle: isDrawer }">
       <router-view class="main__router-view"></router-view>
     </div>

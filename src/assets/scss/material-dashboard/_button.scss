@@ -1,4 +1,4 @@
-.loo-btn {
+.d-btn {
   margin: 10px 1px;
   padding: 10px + 2 15px + 15;
   font-size: 12px;
@@ -13,17 +13,17 @@
     background-color: #00307775 !important;
   }
 
-  &.loo-btn--flat {
+  &.d-btn--flat {
     background-color: transparent;
   }
 
-  &.loo-btn--icon {
+  &.d-btn--icon {
     width: 41px;
     height: 41px;
     line-height: 48px;
     padding: 0;
 
-    &.loo-btn--round {
+    &.d-btn--round {
       border-radius: 50%;
     }
   }

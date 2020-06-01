@@ -2,11 +2,11 @@
   <div>
     <h1 class="display-2">Flex</h1>
     <layout-flex-basic />
-    <hr class="loo-divider" />
+    <hr class="d-divider" />
     <layout-flex-direction />
-    <hr class="loo-divider" />
+    <hr class="d-divider" />
     <layout-flex-wrap />
-    <hr class="loo-divider" />
+    <hr class="d-divider" />
     <layout-flex-grow />
   </div>
 </template>

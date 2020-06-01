@@ -1,16 +1,16 @@
 <template>
-  <div class="j-card theme--light" :style="{ width: width }">
-    <div class="j-card__title">
+  <div class="d-card theme--light" :style="{ width: width }">
+    <div class="d-card__title">
       Card Title
     </div>
-    <div class="j-card__subtitle">
+    <div class="d-card__subtitle">
       Secondary text
     </div>
-    <div class="j-card__text">
+    <div class="d-card__text">
       Greyhound divisively hello coldly wonderfully marginally far upon
       excluding.
     </div>
-    <div class="j-card__actions"></div>
+    <div class="d-card__actions"></div>
   </div>
 </template>
 
