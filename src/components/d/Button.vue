@@ -4,7 +4,7 @@
       type="button"
       class="white--text d-btn theme--light elevation-2 d-size__default deep-purple accent-4"
     >
-      <span class="v-btn__content">
+      <span class="d-btn__content">
         <span>Click Me</span>
       </span>
     </button>
