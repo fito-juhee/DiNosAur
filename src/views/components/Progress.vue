@@ -1,20 +1,23 @@
 <template>
   <div>
-    <h1 class="text__title">Progress indicators</h1>
+    <h1 class="title">Progress indicators</h1>
+    <d-progress-linear 
+      active
+      backgroundColor="pink"
+      backgroundOpacity="1"
+    >
+    </d-progress-linear>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+   data() {
+    return {
+    };
+  }
+};
 </script>
 
 <style scoped>
-.text__title {
-  font-size: 48px;
-  margin: 5px 0;
-}
-.text__subtitle {
-  font-size: 14px;
-  margin: 10px 0 30px 0;
-}
 </style>

@@ -28,7 +28,7 @@ const routes = [
     component: Cards
   },
   {
-    path: "/components/progress",
+    path: "/components/progress-linear",
     name: "progress",
     component: Progress
   },
