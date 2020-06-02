@@ -1,7 +1,11 @@
 <template>
   <div>
     <h1 class="title">Progress indicators</h1>
-    <d-progress-linear color="red">
+    <d-progress-linear 
+      active
+      backgroundColor="pink"
+      backgroundOpacity="1"
+    >
     </d-progress-linear>
   </div>
 </template>
@@ -10,7 +14,6 @@
 export default {
    data() {
     return {
-      color: "red"
     };
   }
 };
