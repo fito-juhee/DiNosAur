@@ -60,6 +60,19 @@
   line-height: normal;
   position: relative;
 }
-.d-btn--flat, .d-btn--outlined, .d-btn--text {
-  background-color: transparent;
+
+.d-btn__flat, .d-btn__outlined, .d-btn__text {
+  background-color: transparent !important;
+}
+.d-btn__outlined{
+  border: thin solid;
+  span {
+    color: inherit
+  }
+}
+.d-btn__round {
+  border-radius: 28px;
+}
+.d-btn__outlined:before, .d-btn__round:before, .d-btn__rounded:before {
+  border-radius: inherit;
 }
