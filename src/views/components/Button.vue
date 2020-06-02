@@ -1,7 +1,7 @@
 <template>
   <div>
-    <d-button></d-button>
-    <d-button rounded></d-button>
+    <d-button> click me </d-button>
+    <d-button rounded>click me</d-button>
   </div>
 </template>
 

@@ -6,7 +6,9 @@
       class="white__text d-btn elevation-2 d-size__default deep-purple accent-4"
     >
       <span class="d-btn__content">
-        <span>Click Me</span>
+        <span>
+          <slot></slot>
+        </span>
       </span>
     </button>
   </div>
