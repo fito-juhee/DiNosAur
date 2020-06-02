@@ -13,19 +13,27 @@
     background-color: #00307775 !important;
   }
 
-  &.d-btn--flat {
+  &.d-btn__flat {
     background-color: transparent;
   }
 
-  &.d-btn--icon {
+  &.d-btn__icon {
     width: 41px;
     height: 41px;
     line-height: 48px;
     padding: 0;
 
-    &.d-btn--round {
+    &.d-btn__round {
       border-radius: 50%;
     }
   }
-  
+  :not(.v-btn__round){
+    height: 36px;
+    min-width: 64px;
+    padding: 0 16px;
+  }
+  &.d-size__default, .d-size__large{
+    height: 36px;
+    font-size: .875rem;
+  }
 }
