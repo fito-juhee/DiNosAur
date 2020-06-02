@@ -1,6 +1,7 @@
 <template>
   <div>
     <d-button></d-button>
+    <d-button outlined></d-button>
   </div>
 </template>
 
