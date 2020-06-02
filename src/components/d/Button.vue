@@ -2,7 +2,7 @@
   <div class="row align-center justify-center">
     <button
       type="button"
-      class="white--text d-btn theme--light elevation-2 d-size__default deep-purple accent-4"
+      class="white--text d-btn elevation-2 d-size__default deep-purple accent-4"
     >
       <span class="d-btn__content">
         <span>Click Me</span>
