@@ -7,6 +7,7 @@ import FlexBox from "../views/layout/FlexBox.vue";
 
 import Cards from "../views/components/Cards.vue";
 import Progress from "../views/components/Progress.vue";
+import Button from "../views/components/Button.vue";
 import NotFound from "../views/NotFound.vue";
 
 Vue.use(VueRouter);
@@ -31,6 +32,11 @@ const routes = [
     path: "/components/progress-linear",
     name: "progress",
     component: Progress
+  },
+  {
+    path: "/components/button",
+    name: "button",
+    component: Button
   },
   {
     path: "*",
