@@ -1,8 +1,5 @@
 <template>
   <table :border="border">
-    <th>
-      여기에 뭔가 나와야 하는데 말이지
-    </th>
     <th v-for="(header, index) in headers" :key="index">
       {{ header.text }}
     </th>

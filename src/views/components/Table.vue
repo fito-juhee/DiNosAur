@@ -1,6 +1,5 @@
 <template>
   <div>
-    <h1>Table</h1>
     <d-table
       :headers="headers"
       :items="desserts"
