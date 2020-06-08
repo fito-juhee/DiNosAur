@@ -1,10 +1,10 @@
 <template>
-  <table :border="border">
+  <table :border="border" width="800" height="500" align="center">
     <th v-for="(header, index) in headers" :key="index">
       {{ header.text }}
     </th>
 
-    <tr v-for="(item, i) in items" :key="`A-${i}`">
+    <tr v-for="(item, i) in items" :key="`A-${i}`" align="center">
       <td v-for="header in headers" :key="header.value">
         {{ item[header.value] }}
       </td>
