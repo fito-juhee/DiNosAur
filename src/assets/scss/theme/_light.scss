@@ -1,10 +1,9 @@
 .theme--light {
   &.d-card {
     background-color: #fff;
-    color: rgba(0,0,0,.87);
+    color: rgba(0, 0, 0, 0.87);
     .d-card__subtitle, >.d-card__text{
-      background-color: #fff;
-      color: rgba(0,0,0,.6);
+      color: rgba(0, 0, 0, 0.6);
     }
   }
 }

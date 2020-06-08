@@ -1,6 +1,6 @@
 <template>
   <div class="d-card theme--light" 
-    :class="[{ 'd-card__loading': loading}]"
+    :class="[{ 'theme--dark': dark }, color, { 'd-card__loading': loading }]"
     :style="{ width: width }"
   >
     <div class="d-card__progressBar">
@@ -14,6 +14,14 @@
 <script>
 export default {
   props: {
+    color: {
+      type: String,
+      default: 'primary'
+    },
+    dark: {
+      type: Boolean,
+      default: false
+    },
     loading: {
       type: [Boolean, String],
       default: false
