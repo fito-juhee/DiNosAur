@@ -6,22 +6,26 @@
   >
     <div
       class="d-progress-linear__background"
-      :class="[backgroundColor]"
+      :class="[color, backgroundColor]"
       :style="`opacity: ${backgroundOpacity};`"
     />
-    <div
-      class="d-progress-linear__buffer"
+    <div class="d-progress-linear__buffer"></div>
+    <div class="d-progress-linear__determinate"
       :class="[
-        bufferValue,
+        color,
         { buffer__decrease: indeterminate },
         { buffer__increase: query }
       ]"
+      :style="`width: ${value}%;`"
     />
   </div>
 </template>
 
 <script>
 export default {
+  /*
+    indeterminate: 프로그레스 바가 자동으로 움직이게 해주는 것.
+  */
   props: {
     active: {
       type: Boolean,
@@ -39,21 +43,29 @@ export default {
       type: String,
       default: null
     },
-    indeterminate: {
-      type: Boolean,
-      default: false
+    color: {
+      type: String,
+      default: 'primary'
     },
     height: {
       type: [Number, String],
       default: "4"
     },
-    rounded: {
+    indeterminate: {
       type: Boolean,
       default: false
     },
     query: {
       type: Boolean,
       default: false
+    },
+    rounded: {
+      type: Boolean,
+      default: false
+    },
+    value: {
+      type: [Number, String],
+      default: 0
     }
   }
 };
@@ -81,13 +93,23 @@ export default {
   width: 100%;
 }
 .d-progress-linear__buffer {
+  height: inherit;
   position: absolute;
   left: 0;
   top: 0;
-  background-color: #1e88e5;
   width: 100%;
-  height: 100%;
   transition: inherit;
+}
+
+.d-progress-linear__determinate {
+  background-color: inherit;
+  bottom: 0;
+  height: inherit;
+  left: 0;
+  position: absolute;
+  background-color: #1e88e5;
+  top: 0;
+  width: auto;
 }
 
 .buffer__decrease {
