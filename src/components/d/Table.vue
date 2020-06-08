@@ -9,7 +9,7 @@
     <th
       v-for="(header, index) in headers"
       :key="index"
-      @click="sortTable(index)"
+      @click="sortTable(index, header.sortable)"
     >
       {{ header.text }}
     </th>
@@ -51,11 +51,21 @@ export default {
     this.table_items = this.items;
   },
   methods: {
-    sortTable(index) {
+    sortTable(index, sortable) {
+      if (sortable == false) return;
       let headerKey = this.headers[index].value;
       // %가 담겨있는 열은 문자열로 취급하기 때문에 숫자순으로 정렬안됨
+      console.log(headerKey, " isNaN: ", isNaN(this.table_items[0][headerKey]));
       if (isNaN(this.table_items[0][headerKey])) {
-        this.table_items.sort();
+        this.table_items.sort(function(a, b) {
+          var nameA = a.name.toLowerCase(),
+            nameB = b.name.toLowerCase();
+          if (nameA < nameB)
+            //sort string ascending
+            return -1;
+          if (nameA > nameB) return 1;
+          return 0; //default return value (no sorting)
+        });
       } else {
         this.table_items.sort(function(a, b) {
           return a[headerKey] < b[headerKey]
