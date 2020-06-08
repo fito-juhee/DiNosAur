@@ -1,10 +1,8 @@
 <template>
   <div>
     <h1 class="title">Progress indicators</h1>
-    <d-progress-linear 
-      active
-      backgroundColor="pink"
-      backgroundOpacity="1"
+    <d-progress-linear
+      indeterminate
     >
     </d-progress-linear>
   </div>
@@ -12,12 +10,10 @@
 
 <script>
 export default {
-   data() {
-    return {
-    };
+  data() {
+    return {};
   }
 };
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>
