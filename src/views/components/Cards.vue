@@ -5,9 +5,11 @@
       Cards contain content and actions about a single subject.
     </h1>
     <d-card
-      color="amber"
       loading
-      dark
+      color="amber"
+      disabled
+      flat
+      height="300"
     >
       <d-card-title> Card 만들기 </d-card-title>
       <d-card-subtitle>22222 text</d-card-subtitle>

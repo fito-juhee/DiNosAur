@@ -1,9 +1,15 @@
 <template>
-  <div class="d-card theme--light" 
-    :class="[{ 'theme--dark': dark }, color, { 'd-card__loading': loading }]"
-    :style="{ width: width }"
+  <div class="d-card theme--light"
+    :class="[
+      { 'theme--dark': dark },
+      color,
+      { 'd-card__disabled': disabled },
+      { 'd-card__flat': flat },
+      { 'd-card__loading': loading }
+    ]"
+    :style="`width: ${width}%; height: ${height}px`"
   >
-    <div class="d-card__progressBar">
+    <div class="d-card__progress">
       <d-progress-linear v-if="loading" indeterminate>
       </d-progress-linear>
     </div>
@@ -20,6 +26,22 @@ export default {
     },
     dark: {
       type: Boolean,
+      default: false
+    },
+    disabled: {
+      type: Boolean,
+      default: false
+    },
+    flat: {
+      type: Boolean,
+      default: false
+    },
+    height: {
+      type: [Number, String],
+      default: false
+    },
+    hover: {
+      type: [Number, String],
       default: false
     },
     loading: {
