@@ -8,6 +8,8 @@ import FlexBox from "../views/layout/FlexBox.vue";
 import Cards from "../views/components/Cards.vue";
 import Progress from "../views/components/Progress.vue";
 import Button from "../views/components/Button.vue";
+import Table from "../views/components/Table.vue";
+
 import NotFound from "../views/NotFound.vue";
 
 Vue.use(VueRouter);
@@ -37,6 +39,11 @@ const routes = [
     path: "/components/button",
     name: "button",
     component: Button
+  },
+  {
+    path: "/components/table",
+    name: "table",
+    component: Table
   },
   {
     path: "*",
