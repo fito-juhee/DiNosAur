@@ -1,11 +1,11 @@
 <template>
   <div>
-    <d-table
+    <d-data-table
       :headers="headers"
       :items="desserts"
       :items-per-page="5"
       class="elevation-1"
-    ></d-table>
+    ></d-data-table>
   </div>
 </template>
 

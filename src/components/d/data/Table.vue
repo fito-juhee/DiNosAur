@@ -1,34 +1,34 @@
 <template>
-  <table
-    :border="border"
-    width="100%"
-    height="100%"
-    align="center"
-    class="d-card__text"
-  >
-    <th
-      v-for="(header, index) in headers"
-      :key="index"
-      @click="sortTable(index, header.sortable)"
+  <div>
+    <table
+      width="100%"
+      height="100%"
+      align="center"
+      class="d-card__text d-data-table"
     >
-      {{ header.text }}
-    </th>
+      <th
+        v-for="(header, index) in headers"
+        :key="index"
+        @click="sortTable(index, header.sortable)"
+        :class="makeHeaderClass(header)"
+      >
+        {{ header.text }}
+      </th>
 
-    <tr v-for="(item, i) in table_items" :key="`A-${i}`" align="center">
-      <td v-for="header in headers" :key="header.value">
-        {{ item[header.value] }}
-      </td>
-    </tr>
-  </table>
+      <tr v-for="(item, i) in table_items" :key="`A-${i}`" align="center">
+        <td v-for="header in headers" :key="header.value">
+          {{ item[header.value] }}
+        </td>
+      </tr>
+    </table>
+    <d-data-footer />
+    
+  </div>
 </template>
 
 <script>
 export default {
   props: {
-    border: {
-      type: Number,
-      defulat: 1
-    },
     headers: {
       type: Array,
       defulat: []
@@ -44,9 +44,12 @@ export default {
   },
   data() {
     return {
-      table_items: []
+      table_items: [],
+      currentPage: 1,
+      
     };
   },
+  computed: {},
   created() {
     this.table_items = this.items;
   },
@@ -75,6 +78,16 @@ export default {
             : 0;
         });
       }
+    },
+    makeHeaderClass(header_options) {
+      let class_name = "";
+      if (header_options.align) {
+        class_name = class_name + "text-" + header_options.align + " ";
+      }
+      if (header_options.sortable != false || header_options.sortable) {
+        class_name = class_name + "sortable ";
+      }
+      return class_name;
     }
   }
 };
@@ -87,4 +100,19 @@ export default {
   line-height: 1.375rem;
   letter-spacing: 0.0071428571em;
 }
+.d-data-table {
+  boarder-color: grey;
+}
+th {
+  user-select: none;
+}
+th.sortable {
+  pointer-events: auto;
+  cursor: pointer;
+  outline: 0;
+}
+.text-start {
+  text-align: start !important;
+}
+
 </style>
