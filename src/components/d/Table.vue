@@ -1,10 +1,20 @@
 <template>
-  <table :border="border" width="800" height="500" align="center">
-    <th v-for="(header, index) in headers" :key="index">
+  <table
+    :border="border"
+    width="100%"
+    height="100%"
+    align="center"
+    class="d-card__text"
+  >
+    <th
+      v-for="(header, index) in headers"
+      :key="index"
+      @click="sortTable(index)"
+    >
       {{ header.text }}
     </th>
 
-    <tr v-for="(item, i) in items" :key="`A-${i}`" align="center">
+    <tr v-for="(item, i) in table_items" :key="`A-${i}`" align="center">
       <td v-for="header in headers" :key="header.value">
         {{ item[header.value] }}
       </td>
@@ -30,14 +40,41 @@ export default {
     items_per_page: {
       type: Number,
       defulat: 1
-    },
+    }
   },
   data() {
     return {
+      table_items: []
     };
   },
-  
+  created() {
+    this.table_items = this.items;
+  },
+  methods: {
+    sortTable(index) {
+      let headerKey = this.headers[index].value;
+      // %가 담겨있는 열은 문자열로 취급하기 때문에 숫자순으로 정렬안됨
+      if (isNaN(this.table_items[0][headerKey])) {
+        this.table_items.sort();
+      } else {
+        this.table_items.sort(function(a, b) {
+          return a[headerKey] < b[headerKey]
+            ? -1
+            : a[headerKey] > b[headerKey]
+            ? 1
+            : 0;
+        });
+      }
+    }
+  }
 };
 </script>
 
-<style></style>
+<style scoped>
+.d-card__text {
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.375rem;
+  letter-spacing: 0.0071428571em;
+}
+</style>
