@@ -1,21 +1,24 @@
 <template>
-  <div class="d-card theme--light" :style="{ width: width }">
-    <div class="d-card__title">
-      Card Title
+  <div class="d-card theme--light" 
+    :class="[{ 'd-card__loading': loading}]"
+    :style="{ width: width }"
+  >
+    <div class="d-card__progressBar">
+      <d-progress-linear v-if="loading" indeterminate>
+      </d-progress-linear>
     </div>
-    <div class="d-card__subtitle">
-      Secondary text
-    </div>
-    <div class="d-card__text">
-      Greyhound divisively hello coldly wonderfully marginally far upon
-      excluding.
-    </div>
-    <div class="d-card__actions"></div>
+    <slot></slot>
   </div>
 </template>
 
 <script>
 export default {
+  props: {
+    loading: {
+      type: [Boolean, String],
+      default: false
+    }
+  },
   data() {
     return {
       width: "342px"
@@ -24,4 +27,6 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+
+</style>

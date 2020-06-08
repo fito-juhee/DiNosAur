@@ -4,7 +4,9 @@
     <h1 class="text__subtitle">
       Cards contain content and actions about a single subject.
     </h1>
-    <d-card>
+    <d-card
+      loading
+    >
       <d-card-title> Card 만들기 </d-card-title>
       <d-card-subtitle>22222 text</d-card-subtitle>
       <d-card-text>
