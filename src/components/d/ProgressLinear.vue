@@ -87,7 +87,7 @@ export default {
   top: 0;
   bottom: 0;
   left: 0;
-  background: #1e88e5;
+  background: #1867C0;
   opacity: 0.3;
   transition: inherit;
   width: 100%;
@@ -107,7 +107,7 @@ export default {
   height: inherit;
   left: 0;
   position: absolute;
-  background-color: #1e88e5;
+  background-color: #1867C0;
   top: 0;
   width: auto;
 }
