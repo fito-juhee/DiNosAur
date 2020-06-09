@@ -9,7 +9,9 @@
       { 'd-card__flat': flat },
       { 'd-card__hover': hover },
       `elevation-${elevation}`,
-      { 'd-card__loading': loading }
+      { 'd-card__loading': loading },
+      { 'd-card__outlined': outlined },
+      { 'd-card__raised': raised },
     ]"
     :style="
       `width: ${width}px;
@@ -93,7 +95,19 @@ export default {
     minWidth: {
       type: [Number, String],
       default: undefined
-    }
+    },
+    outlined: {
+      type: Boolean,
+      default: false
+    },
+    raised: {
+      type: Boolean,
+      default: false
+    },
+    ripple: {
+      type: Boolean,
+      default: false
+    },
   },
   data() {
     return {};

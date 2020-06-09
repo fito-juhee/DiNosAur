@@ -7,11 +7,10 @@
     <d-card
       loading
       hover
-      elevation="3"
       light
-      loader-height="10"
       max-width="400"
       min-height="200"
+      raised
     >
       <d-card-title> Card 만들기 </d-card-title>
       <d-card-subtitle>22222 text</d-card-subtitle>
