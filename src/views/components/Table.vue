@@ -3,7 +3,7 @@
     <d-data-table
       :headers="headers"
       :items="desserts"
-      :items-per-page="5"
+      :items_per_page="5"
       class="elevation-1"
     ></d-data-table>
   </div>
@@ -82,6 +82,30 @@ export default {
           carbs: 98,
           protein: 0,
           iron: "2%"
+        },
+        {
+          name: "Honeycomb",
+          calories: 408,
+          fat: 3.2,
+          carbs: 87,
+          protein: 6.5,
+          iron: "45%"
+        },
+        {
+          name: "Donut",
+          calories: 452,
+          fat: 25.0,
+          carbs: 51,
+          protein: 4.9,
+          iron: "22%"
+        },
+        {
+          name: "KitKat",
+          calories: 518,
+          fat: 26.0,
+          carbs: 65,
+          protein: 7,
+          iron: "6%"
         },
         {
           name: "Honeycomb",

@@ -15,14 +15,14 @@
         {{ header.text }}
       </th>
 
-      <tr v-for="(item, i) in table_items" :key="`A-${i}`" align="center">
+      <tr v-for="(item, i) in sliced_items" :key="`A-${i}`" align="center">
         <td v-for="header in headers" :key="header.value">
           {{ item[header.value] }}
         </td>
       </tr>
     </table>
-    <d-data-footer />
-    
+
+    <d-data-footer v-model="table_items_per_page" />
   </div>
 </template>
 
@@ -39,19 +39,29 @@ export default {
     },
     items_per_page: {
       type: Number,
-      defulat: 1
+      defulat: 5
     }
   },
   data() {
     return {
       table_items: [],
       currentPage: 1,
-      
+      table_items_per_page: 5
     };
   },
-  computed: {},
+  computed: {
+    sliced_items() {
+      let start = this.table_items_per_page * (this.currentPage - 1);
+      let end = this.table_items_per_page * this.currentPage;
+      console.log(start, end, this.table_items_per_page, this.currentPage);
+      console.log("What i wanna see", this.items.slice(start, end));
+      return this.items.slice(start, end);
+    }
+  },
   created() {
     this.table_items = this.items;
+    console.log(this.items_per_page);
+    this.table_items_per_page = this.items_per_page;
   },
   methods: {
     sortTable(index, sortable) {
@@ -114,5 +124,4 @@ th.sortable {
 .text-start {
   text-align: start !important;
 }
-
 </style>

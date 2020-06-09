@@ -2,9 +2,9 @@
   <div class="d-data-footer">
     <div class="d-data-footer__select">
       Rows per page:
-      <select name="job">
+      <select name="job" @change="onChange($event.target.value)">
         <option
-          v-for="(pageNumber, index) in values"
+          v-for="(pageNumber, index) in page_item"
           :key="index"
           :value="pageNumber"
         >
@@ -17,13 +17,27 @@
 
 <script>
 export default {
+  props: {
+    value: {
+      type: [Number, String],
+      defulat: 5
+    }
+  },
   data() {
     return {
-      values: [5, 10, 15]
+      page_item: [5, 10, 15]
     };
   },
   created() {
-    console.log(this.values);
+    console.log(this.page_item);
+  },
+  methods: {
+    onChange(value) {
+      if (value == "") {
+        value == 5;
+      }
+      this.$emit("input", value);
+    }
   }
 };
 </script>
