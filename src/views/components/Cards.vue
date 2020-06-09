@@ -6,17 +6,18 @@
     </h1>
     <d-card
       loading
-      color="amber"
-      disabled
-      flat
-      height="300"
+      hover
+      elevation="3"
+      light
+      loader-height="10"
+      max-width="400"
+      min-height="200"
     >
       <d-card-title> Card 만들기 </d-card-title>
       <d-card-subtitle>22222 text</d-card-subtitle>
       <d-card-text>
-        카드 내용
         Greyhound divisively hello coldly wonderfully marginally far upon
-      excluding.
+        excluding.
       </d-card-text>
     </d-card>
   </div>
