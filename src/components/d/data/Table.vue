@@ -22,7 +22,14 @@
       </tr>
     </table>
 
-    <d-data-footer v-model="table_items_per_page" />
+    <d-data-footer 
+      v-model="table_items_per_page" 
+      :start="start"
+      :end="end"
+      :itemLength="table_items.length"
+      @clickLeft="clickLeft"
+      @clickRight="clickRight"
+    />
   </div>
 </template>
 
@@ -46,21 +53,30 @@ export default {
     return {
       table_items: [],
       currentPage: 1,
-      table_items_per_page: 5
+      table_items_per_page: 5,
+      start:0,
+      end:5
     };
   },
   computed: {
     sliced_items() {
-      let start = this.table_items_per_page * (this.currentPage - 1);
-      let end = this.table_items_per_page * this.currentPage;
-      return this.items.slice(start, end);
+      this.setStartEnd()
+      return this.items.slice(this.start, this.end);
     }
   },
   created() {
+    // set Props to Data
     this.table_items = this.items;
     this.table_items_per_page = this.items_per_page;
+
+    // set Data
+    this.setStartEnd()
   },
   methods: {
+    setStartEnd(){
+      this.start = this.table_items_per_page * (this.currentPage - 1);
+      this.end = this.table_items_per_page * this.currentPage;
+    },
     sortTable(index, sortable) {
       if (sortable == false) return;
       let headerKey = this.headers[index].value;
@@ -95,6 +111,16 @@ export default {
         class_name = class_name + "sortable ";
       }
       return class_name;
+    },
+    clickLeft(){
+      if (this.currentPage == 1) return
+      this.currentPage = this.currentPage - 1
+      this.setStartEnd()
+    },
+    clickRight(){
+      if (this.currentPage > this.table_items.length / this.table_items_per_page) return
+      this.currentPage = this.currentPage + 1
+      this.setStartEnd()
     }
   }
 };
