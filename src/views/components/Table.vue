@@ -3,7 +3,6 @@
     <d-data-table
       :headers="headers"
       :items="desserts"
-      :items_per_page="5"
       class="elevation-1"
     ></d-data-table>
   </div>

@@ -31,15 +31,15 @@ export default {
   props: {
     headers: {
       type: Array,
-      defulat: []
+      default: null
     },
     items: {
       type: Array,
-      defulat: []
+      default: null
     },
     items_per_page: {
       type: Number,
-      defulat: 5
+      default: 5
     }
   },
   data() {
@@ -53,14 +53,11 @@ export default {
     sliced_items() {
       let start = this.table_items_per_page * (this.currentPage - 1);
       let end = this.table_items_per_page * this.currentPage;
-      console.log(start, end, this.table_items_per_page, this.currentPage);
-      console.log("What i wanna see", this.items.slice(start, end));
       return this.items.slice(start, end);
     }
   },
   created() {
     this.table_items = this.items;
-    console.log(this.items_per_page);
     this.table_items_per_page = this.items_per_page;
   },
   methods: {
