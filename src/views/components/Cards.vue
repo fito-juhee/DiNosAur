@@ -6,7 +6,7 @@
     </h1>
     <d-card light max-width="400">
       <d-card-title> Card 만들기 </d-card-title>
-      <d-card-subtitle>22222 text</d-card-subtitle>
+      <d-card-subtitle>sub text</d-card-subtitle>
       <d-card-text>
         Greyhound divisively hello coldly wonderfully marginally far upon
         excluding.
