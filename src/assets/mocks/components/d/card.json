@@ -1,0 +1,14 @@
+{
+  "cardClass": {
+    "dark": "theme--dark",
+    "light": "theme--light",
+    "disabled": "d-card__disabled",
+    "flat": "d-card__flat",
+    "hover": "d-card__hover",
+    "href": "d-card__link",
+    "loading": "d-card__loading",
+    "outlined": "d-card__outlined",
+    "raised": "d-card__raised",
+    "to": "d-card__link"
+  }
+}

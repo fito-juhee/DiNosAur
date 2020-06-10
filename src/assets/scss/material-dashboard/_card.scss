@@ -13,22 +13,6 @@
               0 2px 2px 0 rgba(0,0,0,.14),
               0 1px 5px 0 rgba(0,0,0,.12);
 }
-
-.d-card {
-  display: block;
-  max-width: 100%;
-  outline: none;
-  text-decoration: none;
-  transition-property: box-shadow,opacity;
-  overflow-wrap: break-word;
-  position: relative;
-  white-space: normal;
-  transition: box-shadow .28s cubic-bezier(.4,0,.2,1);
-  will-change: box-shadow;
-  box-shadow: 0 3px 1px -2px rgba(0,0,0,.2),
-              0 2px 2px 0 rgba(0,0,0,.14),
-              0 1px 5px 0 rgba(0,0,0,.12);
-}
 .d-card__title {
   align-items: center;
   display: flex;
@@ -41,7 +25,7 @@
   +.d-card__subtitle, .d-card__text {
     padding-top: 0;
   }
-  +.j_card__subtitle {
+  +.d-card__subtitle {
     margin-top: -16px;
   }
 }
@@ -56,9 +40,54 @@
     padding-top: 0;
   }
 }
-.d-card__text {
-  // width: 100%;
-}
 .d-card__subtitle, .d-card__text, .d-card__title {
   padding: 16px;
+}
+.d-card__disabled {
+  pointer-events: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.d-card__disabled>:not(.d-card__progress) {
+  opacity: 0.6;
+  transition: inherit;
+}
+.d-card__flat {
+  box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.2), 
+              0 0 0 0 rgba(0, 0, 0, 0.14),
+              0 0 0 0 rgba(0, 0, 0, 0.12);
+}
+.d-card__hover {
+  cursor: pointer;
+  transition: box-shadow .4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+.d-card__hover:hover {
+  box-shadow: 0px 4px 5px -2px rgba(0,0,0,0.2),
+              0px 7px 10px 1px rgba(0,0,0,0.14), 
+              0px 2px 16px 1px rgba(0,0,0,0.12);
+}
+.d-card__outlined {
+  box-shadow: none;
+}
+.d-card__raised {
+  box-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.2), 
+              0px 8px 10px 1px rgba(0, 0, 0, 0.14), 
+              0px 3px 14px 2px rgba(0, 0, 0, 0.12);
+}
+.d-card__link:before {
+  background: currentColor;
+  bottom: 0;
+  content: "";
+  left: 0;
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: opacity 0.2s;
+}
+.d-card__link:focus:before {
+  opacity: 0.08;
 }

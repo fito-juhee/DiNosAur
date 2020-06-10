@@ -2,5 +2,8 @@
   &.d-card {
     background-color: #1e1e1e;
     color: #fff;
+    .d-card__subtitle, >.d-card__text{
+      color: #fff;
+    }
   }
 }
