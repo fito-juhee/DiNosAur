@@ -4,14 +4,7 @@
     <h1 class="text__subtitle">
       Cards contain content and actions about a single subject.
     </h1>
-    <d-card
-      loading
-      hover
-      light
-      max-width="400"
-      min-height="200"
-      raised
-    >
+    <d-card light max-width="400">
       <d-card-title> Card 만들기 </d-card-title>
       <d-card-subtitle>22222 text</d-card-subtitle>
       <d-card-text>
