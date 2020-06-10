@@ -22,7 +22,12 @@
 
       <tr v-for="(item, i) in sliced_items" :key="`A-${i}`" align="center">
         <td v-if="show_select">
-          <input type="checkbox" v-model="selectedIndexes" :value="i" />
+          <input
+            type="checkbox"
+            v-model="selectedIndexes"
+            @click="selectOne(i)"
+            :value="i"
+          />
         </td>
 
         <td></td>
@@ -101,7 +106,6 @@ export default {
   },
   created() {
     // set Props to Data
-    console.log("Created", this.items);
     this.table_items_per_page = this.items_per_page;
     this.makeSearchSort();
   },
@@ -111,9 +115,10 @@ export default {
 
       if (!this.allSelected) {
         for (var item_index in this.sliced_items) {
-          this.selectedIndexes.push(item_index);
+          this.selectedIndexes.push(Number(item_index));
         }
       }
+      this.emitSelection();
     },
     onSortTable(index, sortable) {
       console.log("onSortTable", index, sortable);
@@ -211,9 +216,31 @@ export default {
       this.currentPage = this.currentPage + 1;
       this.resetCheck();
     },
+    selectOne(index) {
+      if (this.selectedIndexes.includes(index)) {
+        const item_index = this.selectedIndexes.indexOf(index);
+        if (item_index > -1) {
+          this.selectedIndexes.splice(item_index, 1);
+        }
+      } else {
+        this.selectedIndexes.push(index);
+      }
+      this.emitSelection();
+    },
     resetCheck() {
       this.allSelected = false;
       this.selectedIndexes = [];
+      this.emitSelection();
+    },
+    emitSelection() {
+      console.log(this.selectedIndexes);
+      let selected_items = [];
+      for (var i in this.selectedIndexes) {
+        let slice_index = this.selectedIndexes[i];
+        selected_items.push(this.sliced_items[slice_index]);
+      }
+      console.log(selected_items);
+      this.$emit("value", selected_items);
     }
   }
 };
