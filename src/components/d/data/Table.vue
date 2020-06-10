@@ -9,7 +9,7 @@
       <th
         v-for="(header, index) in headers"
         :key="index"
-        @click="sortTable(index, header.sortable)"
+        @click="onSortTable(index, header.sortable)"
         :class="makeHeaderClass(header)"
       >
         {{ header.text }}
@@ -26,7 +26,7 @@
       v-model="table_items_per_page" 
       :start="start"
       :end="end"
-      :itemLength="table_items.length"
+      :itemLength="searched_sorted_items.length"
       @clickLeft="clickLeft"
       @clickRight="clickRight"
     />
@@ -47,43 +47,85 @@ export default {
     items_per_page: {
       type: Number,
       default: 5
+    },
+    search:{
+      type: [Number, String],
+      default: ''
     }
   },
   data() {
     return {
-      table_items: [],
       currentPage: 1,
       table_items_per_page: 5,
       start:0,
-      end:5
+      end:5,
+      appliedSort: {index:null, isAscending: true}, // ex) {index:0, isAscending: true},
+      searched_sorted_items: []
     };
   },
   computed: {
     sliced_items() {
-      this.setStartEnd()
-      return this.items.slice(this.start, this.end);
+      return this.searched_sorted_items.slice(this.start, this.end);
     }
+  },
+  watch: {
+    currentPage(value){
+      this.setStartEnd()
+    },
+    table_items_per_page(value){
+      this.setStartEnd()
+    },
+    appliedSort(value){
+      this.makeSearchSort()
+    },
+    search(value){
+      this.makeSearchSort()
+    },
   },
   created() {
     // set Props to Data
-    this.table_items = this.items;
+    console.log("Created", this.items)
     this.table_items_per_page = this.items_per_page;
-
-    // set Data
-    this.setStartEnd()
+    this.makeSearchSort()
   },
   methods: {
-    setStartEnd(){
-      this.start = this.table_items_per_page * (this.currentPage - 1);
-      this.end = this.table_items_per_page * this.currentPage;
-    },
-    sortTable(index, sortable) {
+    onSortTable(index, sortable) {
+      console.log("onSortTable", index, sortable)
       if (sortable == false) return;
+      let newAppliedSort = {
+        index: index,
+        isAscending: true
+      }
+      // watch에서 변화를 탐지하려면 새로 할당해줘야됨 
+      this.appliedSort = newAppliedSort
+    },
+    get_searched_items(items, search){
+      let resultItems = []
+      items.forEach(function (item){
+        let hasSearch = false;
+        for (var key in item){
+          let value = item[key];
+          // value가 search를 가지고 있는지
+          hasSearch = value.toString().includes(search)
+          if (hasSearch){
+            resultItems.push(item)
+            break
+          }
+        }
+      })
+      return resultItems
+    },
+
+    get_sort_items(items, sortInfo){
+      console.log(4, sortInfo)
+      if (sortInfo["index"] == null) return items
+      console.log(5)
+      let index = sortInfo["index"]
+      console.log(6, index)
       let headerKey = this.headers[index].value;
       // %가 담겨있는 열은 문자열로 취급하기 때문에 숫자순으로 정렬안됨
-      console.log(headerKey, " isNaN: ", isNaN(this.table_items[0][headerKey]));
-      if (isNaN(this.table_items[0][headerKey])) {
-        this.table_items.sort(function(a, b) {
+      if (isNaN(items[0][headerKey])) {
+        items.sort(function(a, b) {
           var nameA = a.name.toLowerCase(),
             nameB = b.name.toLowerCase();
           if (nameA < nameB)
@@ -93,7 +135,7 @@ export default {
           return 0; //default return value (no sorting)
         });
       } else {
-        this.table_items.sort(function(a, b) {
+        items.sort(function(a, b) {
           return a[headerKey] < b[headerKey]
             ? -1
             : a[headerKey] > b[headerKey]
@@ -101,7 +143,23 @@ export default {
             : 0;
         });
       }
+      return items
     },
+
+    setStartEnd(){
+      this.start = this.table_items_per_page * (this.currentPage - 1);
+      this.end = this.table_items_per_page * this.currentPage;
+    },
+    
+    makeSearchSort(){
+      console.log(1)
+      let searched_items = this.get_searched_items(this.items, this.search)
+      console.log(2, searched_items)
+      console.log(this.appliedSort)
+      this.searched_sorted_items = this.get_sort_items(searched_items, this.appliedSort)
+      console.log(3, this.searched_sorted_items)
+    },
+
     makeHeaderClass(header_options) {
       let class_name = "";
       if (header_options.align) {
@@ -115,12 +173,11 @@ export default {
     clickLeft(){
       if (this.currentPage == 1) return
       this.currentPage = this.currentPage - 1
-      this.setStartEnd()
     },
     clickRight(){
-      if (this.currentPage > this.table_items.length / this.table_items_per_page) return
+      let maxPage = this.searched_sorted_items.length / this.table_items_per_page
+      if (this.currentPage >= maxPage ) return
       this.currentPage = this.currentPage + 1
-      this.setStartEnd()
     }
   }
 };

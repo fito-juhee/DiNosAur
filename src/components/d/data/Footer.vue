@@ -44,7 +44,8 @@ export default {
     itemLength:{
       type: [Number, String],
       defulat: 10
-    }
+    },
+    
   },
   data() {
     return {
@@ -80,5 +81,9 @@ export default {
   flex: 0 0 0;
   justify-content: flex-end;
   white-space: nowrap;
+}
+.d-data-footer__pagination {
+    display: block;
+    text-align: center;
 }
 </style>
