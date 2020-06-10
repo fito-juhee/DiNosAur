@@ -121,7 +121,6 @@ export default {
       this.emitSelection();
     },
     onSortTable(index, sortable) {
-      console.log("onSortTable", index, sortable);
       if (sortable == false) return;
       let newAppliedSort = {
         index: index,
@@ -148,11 +147,8 @@ export default {
     },
 
     get_sort_items(items, sortInfo) {
-      console.log(4, sortInfo);
       if (sortInfo["index"] == null) return items;
-      console.log(5);
       let index = sortInfo["index"];
-      console.log(6, index);
       let headerKey = this.headers[index].value;
       // %가 담겨있는 열은 문자열로 취급하기 때문에 숫자순으로 정렬안됨
       if (isNaN(items[0][headerKey])) {
@@ -183,15 +179,11 @@ export default {
     },
 
     makeSearchSort() {
-      console.log(1);
       let searched_items = this.get_searched_items(this.items, this.search);
-      console.log(2, searched_items);
-      console.log(this.appliedSort);
       this.searched_sorted_items = this.get_sort_items(
         searched_items,
         this.appliedSort
       );
-      console.log(3, this.searched_sorted_items);
     },
 
     makeHeaderClass(header_options) {
@@ -233,13 +225,11 @@ export default {
       this.emitSelection();
     },
     emitSelection() {
-      console.log(this.selectedIndexes);
       let selected_items = [];
       for (var i in this.selectedIndexes) {
         let slice_index = this.selectedIndexes[i];
         selected_items.push(this.sliced_items[slice_index]);
       }
-      console.log(selected_items);
       this.$emit("value", selected_items);
     }
   }
