@@ -4,6 +4,7 @@
       :headers="headers"
       :items="desserts"
       class="elevation-1"
+      show_select
     ></d-data-table>
   </div>
 </template>

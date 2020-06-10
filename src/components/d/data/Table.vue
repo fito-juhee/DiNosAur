@@ -6,6 +6,11 @@
       align="center"
       class="d-card__text d-data-table"
     >
+      <th v-if="show_select">
+        <input type="checkbox" @click="selectAll" v-model="allSelected" />
+      </th>
+
+      <th></th>
       <th
         v-for="(header, index) in headers"
         :key="index"
@@ -16,6 +21,16 @@
       </th>
 
       <tr v-for="(item, i) in sliced_items" :key="`A-${i}`" align="center">
+        <td v-if="show_select">
+          <input
+            type="checkbox"
+            v-model="selectedIndexes"
+            @click="selectOne(i)"
+            :value="i"
+          />
+        </td>
+
+        <td></td>
         <td v-for="header in headers" :key="header.value">
           {{ item[header.value] }}
         </td>
@@ -36,6 +51,10 @@
 <script>
 export default {
   props: {
+    show_select: {
+      type: Boolean,
+      default: false
+    },
     headers: {
       type: Array,
       default: null
@@ -60,7 +79,10 @@ export default {
       start: 0,
       end: 5,
       appliedSort: { index: null, isAscending: true }, // ex) {index:0, isAscending: true},
-      searched_sorted_items: []
+      searched_sorted_items: [],
+      selected: [],
+      allSelected: false,
+      selectedIndexes: []
     };
   },
   computed: {
@@ -69,28 +91,36 @@ export default {
     }
   },
   watch: {
-    currentPage() {
+    currentPage(value) {
       this.setStartEnd();
     },
-    table_items_per_page() {
+    table_items_per_page(value) {
       this.setStartEnd();
     },
-    appliedSort() {
+    appliedSort(value) {
       this.makeSearchSort();
     },
-    search() {
+    search(value) {
       this.makeSearchSort();
     }
   },
   created() {
     // set Props to Data
-    console.log("Created", this.items);
     this.table_items_per_page = this.items_per_page;
     this.makeSearchSort();
   },
   methods: {
+    selectAll: function() {
+      this.selectedIndexes = [];
+
+      if (!this.allSelected) {
+        for (var item_index in this.sliced_items) {
+          this.selectedIndexes.push(Number(item_index));
+        }
+      }
+      this.emitSelection();
+    },
     onSortTable(index, sortable) {
-      console.log("onSortTable", index, sortable);
       if (sortable == false) return;
       let newAppliedSort = {
         index: index,
@@ -117,11 +147,8 @@ export default {
     },
 
     get_sort_items(items, sortInfo) {
-      console.log(4, sortInfo);
       if (sortInfo["index"] == null) return items;
-      console.log(5);
       let index = sortInfo["index"];
-      console.log(6, index);
       let headerKey = this.headers[index].value;
       // %가 담겨있는 열은 문자열로 취급하기 때문에 숫자순으로 정렬안됨
       if (isNaN(items[0][headerKey])) {
@@ -152,15 +179,11 @@ export default {
     },
 
     makeSearchSort() {
-      console.log(1);
       let searched_items = this.get_searched_items(this.items, this.search);
-      console.log(2, searched_items);
-      console.log(this.appliedSort);
       this.searched_sorted_items = this.get_sort_items(
         searched_items,
         this.appliedSort
       );
-      console.log(3, this.searched_sorted_items);
     },
 
     makeHeaderClass(header_options) {
@@ -176,12 +199,38 @@ export default {
     clickLeft() {
       if (this.currentPage == 1) return;
       this.currentPage = this.currentPage - 1;
+      this.resetCheck();
     },
     clickRight() {
       let maxPage =
         this.searched_sorted_items.length / this.table_items_per_page;
       if (this.currentPage >= maxPage) return;
       this.currentPage = this.currentPage + 1;
+      this.resetCheck();
+    },
+    selectOne(index) {
+      if (this.selectedIndexes.includes(index)) {
+        const item_index = this.selectedIndexes.indexOf(index);
+        if (item_index > -1) {
+          this.selectedIndexes.splice(item_index, 1);
+        }
+      } else {
+        this.selectedIndexes.push(index);
+      }
+      this.emitSelection();
+    },
+    resetCheck() {
+      this.allSelected = false;
+      this.selectedIndexes = [];
+      this.emitSelection();
+    },
+    emitSelection() {
+      let selected_items = [];
+      for (var i in this.selectedIndexes) {
+        let slice_index = this.selectedIndexes[i];
+        selected_items.push(this.sliced_items[slice_index]);
+      }
+      this.$emit("value", selected_items);
     }
   }
 };
