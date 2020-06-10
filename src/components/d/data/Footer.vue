@@ -13,18 +13,25 @@
       </select>
     </div>
     <div class="d-data-footer__pagination">
-      {{start + 1}}-{{end}} of {{itemLength}}
+      {{ start + 1 }}-{{ end }} of {{ itemLength }}
     </div>
     <div class="d-data-footer__icons-before">
-      <button class="btn" @click="$emit('clickLeft')"><i class="fa fa-angle-left"></i></button>
+      <button class="btn" @click="$emit('clickLeft')">
+        <i class="fa fa-angle-left"></i>
+      </button>
     </div>
     <div class="d-data-footer__icons-after">
-      <button class="btn" @click="$emit('clickRight')"><i class="fa fa-angle-right"></i></button>
+      <button class="btn" @click="$emit('clickRight')">
+        <i class="fa fa-angle-right"></i>
+      </button>
     </div>
   </div>
 </template>
 
-<script src="https://kit.fontawesome.com/8dcedb99b6.js" crossorigin="anonymous"></script>
+<script
+  src="https://kit.fontawesome.com/8dcedb99b6.js"
+  crossorigin="anonymous"
+></script>
 
 <script>
 export default {
@@ -33,19 +40,18 @@ export default {
       type: [Number, String],
       defulat: 5
     },
-    start:{
+    start: {
       type: [Number, String],
       defulat: 0
     },
-    end:{
+    end: {
       type: [Number, String],
       defulat: 5
     },
-    itemLength:{
+    itemLength: {
       type: [Number, String],
       defulat: 10
-    },
-    
+    }
   },
   data() {
     return {
@@ -83,7 +89,7 @@ export default {
   white-space: nowrap;
 }
 .d-data-footer__pagination {
-    display: block;
-    text-align: center;
+  display: block;
+  text-align: center;
 }
 </style>

@@ -10,7 +10,8 @@
       :style="`opacity: ${backgroundOpacity};`"
     />
     <div class="d-progress-linear__buffer"></div>
-    <div class="d-progress-linear__determinate"
+    <div
+      class="d-progress-linear__determinate"
       :class="[
         color,
         { buffer__decrease: indeterminate },
@@ -45,7 +46,7 @@ export default {
     },
     color: {
       type: String,
-      default: 'primary'
+      default: "primary"
     },
     height: {
       type: [Number, String],
@@ -87,7 +88,7 @@ export default {
   top: 0;
   bottom: 0;
   left: 0;
-  background: #1867C0;
+  background: #1867c0;
   opacity: 0.3;
   transition: inherit;
   width: 100%;
@@ -107,7 +108,7 @@ export default {
   height: inherit;
   left: 0;
   position: absolute;
-  background-color: #1867C0;
+  background-color: #1867c0;
   top: 0;
   width: auto;
 }
