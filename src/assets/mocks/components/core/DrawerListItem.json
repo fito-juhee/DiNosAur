@@ -1,6 +1,5 @@
 {
-  "items": [
-    {
+  "items": [{
       "title": "Grids",
       "to": "/layout/girds"
     },
@@ -11,6 +10,10 @@
     {
       "title": "Flex",
       "to": "/layout/flexBox"
+    },
+    {
+      "title": "Buttons",
+      "to": "/components/button"
     },
     {
       "title": "Cards",

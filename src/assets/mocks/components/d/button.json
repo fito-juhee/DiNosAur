@@ -1,0 +1,280 @@
+{
+  "propsDoc": [{
+      "Name": "absolute",
+      "Type": "boolean",
+      "Default": "false",
+      "Description": "Applies position: absolute to the component."
+    },
+    {
+      "Name": "active-class",
+      "Type": "string",
+      "Default": "false",
+      "Description": "Configure the active CSS class applied when the link is active. You can find more information about the active-class prop on the vue-router documentation."
+    },
+    {
+      "Name": "absolute",
+      "Type": "boolean",
+      "Default": "false",
+      "Description": "Setting append prop always appends the relative path to the current path. You can find more information about the append prop on the vue-router documentation."
+    },
+    {
+      "Name": "block",
+      "Type": "boolean",
+      "Default": "false",
+      "Description": "Expands the button to 100% of available space."
+    },
+    {
+      "Name": "bottom",
+      "Type": "boolean",
+      "Default": "false",
+      "Description": "Aligns the component towards the bottom."
+    },
+    {
+      "Name": "color",
+      "Type": "string",
+      "Default": "undefined",
+      "Description": "Applies specified color to the control - it can be the name of material color (for example success or purple) or css color (#033 or rgba(255, 0, 0, 0.5)). You can find list of built in classes on the colors page."
+    },
+    {
+      "Name": "dark",
+      "Type": "boolean",
+      "Default": "false",
+      "Description": "Applies the dark theme variant to the component. You can find more information on the Material Design documentation for dark themes."
+    },
+    {
+      "Name": "depressed",
+      "Type": "boolean",
+      "Default": "false",
+      "Description": "Removes the button box shadow."
+    },
+    {
+      "Name": "color",
+      "Type": "boolean",
+      "Default": "false",
+      "Description": ""
+    },
+    {
+      "Name": "disabled",
+      "Type": "boolean",
+      "Default": "false",
+      "Description": "Removes the ability to click or target the component."
+    },
+    {
+      "Name": "color",
+      "Type": "string",
+      "Default": "undefined",
+      "Description": ""
+    },
+    {
+      "Name": "elevation",
+      "Type": "number | string",
+      "Default": "undefined",
+      "Description": "Designates an elevation applied to the component between 0 and 24. You can find more information on the elevation page."
+    },
+    {
+      "Name": "exact",
+      "Type": "boolean",
+      "Default": "false",
+      "Description": "Exactly match the link. Without this, '/' will match every route. You can find more information about the exact prop on the vue-router documentation."
+    },
+    {
+      "Name": "exact-active-class",
+      "Type": "string",
+      "Default": "undefined",
+      "Description": "Configure the active CSS class applied when the link is active with exact match. You can find more information about the exact-active-class prop on the vue-router documentation."
+    },
+    {
+      "Name": "fab",
+      "Type": "boolean",
+      "Default": "false",
+      "Description": "Designates the button as a floating-action-button - round."
+    },
+    {
+      "Name": "fixed",
+      "Type": "boolean",
+      "Default": "false",
+      "Description": "Applies position: fixed to the component."
+    },
+    {
+      "Name": "height",
+      "Type": "number | string",
+      "Default": "undefined",
+      "Description": "Sets the height for the component."
+    },
+    {
+      "Name": "href",
+      "Type": "string | object",
+      "Default": "undefined",
+      "Description": "Designates the component as anchor and applies the href attribute."
+    },
+    {
+      "Name": "icon",
+      "Type": "boolean",
+      "Default": "false",
+      "Description": "Designates the button as icon - round and flat"
+    },
+    {
+      "Name": "input-value",
+      "Type": "any",
+      "Default": "undefined",
+      "Description": "Controls the button's active state."
+    },
+    {
+      "Name": "large",
+      "Type": "boolean",
+      "Default": "false",
+      "Description": "Makes the component large."
+    },
+    {
+      "Name": "left",
+      "Type": "boolean",
+      "Default": "false",
+      "Description": "Aligns the component towards the left. This should be used with the absolute or fixed props."
+    },
+    {
+      "Name": "light",
+      "Type": "boolean",
+      "Default": "false",
+      "Description": "Applies the light theme variant to the component."
+    },
+    {
+      "Name": "link",
+      "Type": "boolean",
+      "Default": "false",
+      "Description": "Designates that the component is a link. This is automatic when using the href or to prop."
+    },
+    {
+      "Name": "loading",
+      "Type": "boolean",
+      "Default": "false",
+      "Description": "로딩 아이콘 애니메이션을 추가"
+    },
+    {
+      "Name": "max-height",
+      "Type": "number | string",
+      "Default": "undefined",
+      "Description": "Sets the maximum height for the component."
+    },
+    {
+      "Name": "max-width",
+      "Type": "number | string",
+      "Default": "undefined",
+      "Description": "Sets the maximum width for the component."
+    },
+    {
+      "Name": "min-height",
+      "Type": "number | string",
+      "Default": "undefined",
+      "Description": "Sets the minimum height for the component."
+    },
+    {
+      "Name": "min-width",
+      "Type": "number | string",
+      "Default": "undefined",
+      "Description": "Sets the minimum width for the component."
+    },
+    {
+      "Name": "outlined",
+      "Type": "boolean",
+      "Default": "false",
+      "Description": "Makes the background transparent and applies a thin border."
+    },
+    {
+      "Name": "replace",
+      "Type": "boolean",
+      "Default": "false",
+      "Description": "Setting replace prop will call router.replace() instead of router.push() when clicked, so the navigation will not leave a history record. You can find more information about the replace prop on the vue-router documentation."
+    },
+    {
+      "Name": "retain-focus-on-click",
+      "Type": "boolean",
+      "Default": "false",
+      "Description": "Don't blur on click."
+    },
+    {
+      "Name": "right",
+      "Type": "boolean",
+      "Default": "false",
+      "Description": "Aligns the component towards the right. This should be used with the absolute or fixed props."
+    },
+    {
+      "Name": "ripple",
+      "Type": "boolean | object",
+      "Default": "false",
+      "Description": "Applies the v-ripple directive."
+    },
+    {
+      "Name": "rounded",
+      "Type": "boolean",
+      "Default": "false",
+      "Description": "Applies a large border radius on the button."
+    },
+    {
+      "Name": "small",
+      "Type": "boolean",
+      "Default": "false",
+      "Description": "Makes the component small."
+    },
+    {
+      "Name": "tag",
+      "Type": "string",
+      "Default": "'button'",
+      "Description": "Specify a custom tag used on the root element."
+    },
+    {
+      "Name": "target",
+      "Type": "string",
+      "Default": "undefined",
+      "Description": "Designates the target attribute. This should only be applied when using the href prop."
+    },
+    {
+      "Name": "text",
+      "Type": "boolean",
+      "Default": "false",
+      "Description": "Makes the background transparent."
+    },
+    {
+      "Name": "tile",
+      "Type": "boolean",
+      "Default": "false",
+      "Description": "Removes the component's border-radius."
+    },
+    {
+      "Name": "top",
+      "Type": "boolean",
+      "Default": "false",
+      "Description": "Aligns the content towards the top."
+    },
+    {
+      "Name": "type",
+      "Type": "string",
+      "Default": "'button'",
+      "Description": "Set the button's type attribute"
+    },
+    {
+      "Name": "value",
+      "Type": "any",
+      "Default": "undefined",
+      "Description": "The value used when the component is selected in a group. If not provided, the index will be used."
+    },
+    {
+      "Name": "width",
+      "Type": "number | string",
+      "Default": "false",
+      "Description": "Sets the width for the component."
+    },
+    {
+      "Name": "x-large",
+      "Type": "boolean",
+      "Default": "false",
+      "Description": "Makes the component extra large."
+    },
+    {
+      "Name": "x-small",
+      "Type": "boolean",
+      "Default": "false",
+      "Description": "Makes the component extra small."
+    }
+
+  ]
+}
