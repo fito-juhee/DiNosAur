@@ -7,7 +7,7 @@
     <div class="second__container">
       <ul class="list__container">
         <li class="list__item" v-for="(item, index) in propsItems" :key="index">
-          <div class="item__content">
+          <div class="item__content" :class="{disabled: !item.isActive}">
             <div class="item__text">
               <div class="text__label">Name</div>
               <span class="text__value props__name">{{ item.Name }}</span>
@@ -21,7 +21,7 @@
               <span class="text__value">{{ item.Default }}</span>
             </div>
           </div>
-          <div class="item__description">
+          <div class="item__description" :class="{disabled: !item.isActive}">
             <div class="item__text">
               <div class="text__label">Description</div>
               <span class="text__value">{{ item.Description }}</span>
@@ -49,6 +49,7 @@ export default {
 <style scoped lang="scss">
 .first__container {
   width: 800px;
+  margin: 10px 0;
 }
 .second__container {
   .list__container {
@@ -59,11 +60,17 @@ export default {
     overflow-y: scroll;
     border: solid 1px lightgray;
     .list__item {
+      margin: 0 5px;
       .item__content {
         padding: 5px;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
+        &.disabled {
+          opacity: 0.3;
+          background: #eeeeee;
+          color: #c4c4c4;
+        }
         .item__text {
           .text__label {
             font-size: 12px;
@@ -80,6 +87,11 @@ export default {
       }
       .item__description {
         padding: 10px 5px;
+        &.disabled {
+          opacity: 0.3;
+          background: #eeeeee;
+          color: #c4c4c4;
+        }
         .item__text {
           font-size: 12px;
           color: #000000;

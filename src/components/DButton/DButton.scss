@@ -1,6 +1,5 @@
 .d-btn {
-
-  align-items: center;  
+  align-items: center;
   border-radius: 4px;
   flex: 0 0 auto;
   font-weight: 500;
@@ -12,12 +11,11 @@
   text-indent: .0892857143em;
   text-transform: uppercase;
   transition-duration: .28s;
-  transition-property: box-shadow,transform,opacity;
-  transition-timing-function: cubic-bezier(.4,0,.2,1);
+  transition-property: box-shadow, transform, opacity;
+  transition-timing-function: cubic-bezier(.4, 0, .2, 1);
   user-select: none;
   vertical-align: middle;
   white-space: nowrap;
-  
 
   &:hover {
     background-color: #00307775 !important;
@@ -37,21 +35,25 @@
       border-radius: 50%;
     }
   }
-  :not(.d-btn__round){
+
+  :not(.d-btn__round) {
     height: 36px;
     min-width: 64px;
     padding: 0 16px;
   }
-  &.d-size__default, .d-size__large{
+
+  &.d-size__default,
+  .d-size__large {
     height: 36px;
     font-size: .875rem;
   }
-  :not(.d-btn-disabled){
+
+  :not(.d-btn-disabled) {
     will-change: box-shadow;
   }
-  
+
 }
-  
+
 .d-btn__content {
   align-items: center;
   color: inherit;
@@ -61,18 +63,26 @@
   position: relative;
 }
 
-.d-btn__flat, .d-btn__outlined, .d-btn__text {
+.d-btn__flat,
+.d-btn__outlined,
+.d-btn__text {
   background-color: transparent !important;
 }
-.d-btn__outlined{
+
+.d-btn__outlined {
   border: thin solid;
+
   span {
     color: inherit
   }
 }
+
 .d-btn__round {
   border-radius: 28px;
 }
-.d-btn__outlined:before, .d-btn__round:before, .d-btn__rounded:before {
+
+.d-btn__outlined:before,
+.d-btn__round:before,
+.d-btn__rounded:before {
   border-radius: inherit;
 }

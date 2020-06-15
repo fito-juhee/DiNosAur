@@ -1,0 +1,11 @@
+@import './tools/elevation';
+
+$z: 24;
+
+@while $z>=0 {
+  .d-application .elevation-#{$z} {
+    @include elevation($z, $important: true);
+  }
+
+  $z: $z - 1;
+}
