@@ -1,7 +1,8 @@
 <template>
   <div>
     <img class="home__logo" alt="Vue logo" src="@/assets/dna.png" />
-    <h4>Home Hello! :)</h4>
+    <h2>DNA</h2>
+    <h4>material design components</h4>
   </div>
 </template>
 

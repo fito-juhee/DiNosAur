@@ -26,6 +26,11 @@ const routes = [
     component: FlexBox
   },
   {
+    path: "/components/button",
+    name: "button",
+    component: Button
+  },
+  {
     path: "/components/card",
     name: "card",
     component: Cards
@@ -34,11 +39,6 @@ const routes = [
     path: "/components/progress-linear",
     name: "progress",
     component: Progress
-  },
-  {
-    path: "/components/button",
-    name: "button",
-    component: Button
   },
   {
     path: "/components/table",
